@@ -35,20 +35,9 @@
             margin: 0 auto 24px;
             box-shadow: 0 0 30px rgba(0, 100, 255, 0.5);
         }
-        .logo span {
-            font-size: 48px;
-            font-weight: bold;
-            color: white;
-        }
-        h1 {
-            color: white;
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-        p {
-            color: #8899bb;
-            margin-bottom: 32px;
-        }
+        .logo span { font-size: 48px; font-weight: bold; color: white; }
+        h1 { color: white; font-size: 28px; margin-bottom: 12px; }
+        p { color: #8899bb; margin-bottom: 32px; }
         .btn {
             background: linear-gradient(135deg, #0064ff, #00a3ff);
             color: white;
@@ -65,28 +54,40 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 100, 255, 0.5);
         }
-        .footer {
-            margin-top: 32px;
-            color: #556688;
-            font-size: 12px;
-        }
+        .footer { margin-top: 32px; color: #556688; font-size: 12px; }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="logo"><span>N</span></div>
     <h1>NOVE KEY SYSTEM</h1>
-    <p>Step 1 of 2 — Verify to continue</p>
+    <p>Step 1 of 2 — Complete verification</p>
     <button class="btn" id="startBtn">START VERIFICATION →</button>
     <div class="footer">© 2024 Nove Key System</div>
 </div>
 
 <script>
-    // SENİN LİNKİN - BURAYA KOY!
-    const LINKVERTISE_URL = "https://link-center.net/5929102/1LVkjPoz8faL";
+    // DOĞRUDAN LİNK - KISALTMA YOK!
+    // BU LİNKİ KENDİ LİNKVERTİSE LİNKİNLE DEĞİŞTİR
+    const LINKVERTISE_URL = "https://linkvertise.com/...";
     
     document.getElementById('startBtn').addEventListener('click', function() {
-        window.location.href = LINKVERTISE_URL;
+        window.open(LINKVERTISE_URL, '_blank');
+        alert("Complete the verification in the new tab, then come back and click 'I Completed'");
+        
+        // 2. butonu göster
+        const btn = document.getElementById('startBtn');
+        btn.style.display = 'none';
+        
+        const confirmBtn = document.createElement('button');
+        confirmBtn.className = 'btn';
+        confirmBtn.textContent = '✓ I COMPLETED THE VERIFICATION';
+        confirmBtn.style.marginTop = '20px';
+        confirmBtn.style.background = 'linear-gradient(135deg, #00cc66, #009944)';
+        confirmBtn.onclick = function() {
+            window.location.href = "https://adadadaqq2.github.io/novekey/step2.html";
+        };
+        document.querySelector('.container').appendChild(confirmBtn);
     });
 </script>
 </body>
