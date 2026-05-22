@@ -67,27 +67,12 @@
 </div>
 
 <script>
-    // DOĞRUDAN LİNK - KISALTMA YOK!
-    // BU LİNKİ KENDİ LİNKVERTİSE LİNKİNLE DEĞİŞTİR
+    // SENİN 1. LİNKVERTİSE LİNKİN (Step 1 → Step 2)
+    // Bu linkin "After Completion URL" ayarında step2.html yazılı OLMALI!
     const LINKVERTISE_URL = "https://linkvertise.com/...";
     
     document.getElementById('startBtn').addEventListener('click', function() {
-        window.open(LINKVERTISE_URL, '_blank');
-        alert("Complete the verification in the new tab, then come back and click 'I Completed'");
-        
-        // 2. butonu göster
-        const btn = document.getElementById('startBtn');
-        btn.style.display = 'none';
-        
-        const confirmBtn = document.createElement('button');
-        confirmBtn.className = 'btn';
-        confirmBtn.textContent = '✓ I COMPLETED THE VERIFICATION';
-        confirmBtn.style.marginTop = '20px';
-        confirmBtn.style.background = 'linear-gradient(135deg, #00cc66, #009944)';
-        confirmBtn.onclick = function() {
-            window.location.href = "https://adadadaqq2.github.io/novekey/step2.html";
-        };
-        document.querySelector('.container').appendChild(confirmBtn);
+        window.location.href = LINKVERTISE_URL;
     });
 </script>
 </body>
