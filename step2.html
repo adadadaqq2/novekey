@@ -47,7 +47,7 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,100,255,0.5); }
+        .btn:hover { transform: translateY(-2px); }
         .footer { margin-top: 32px; color: #556688; font-size: 12px; }
     </style>
 </head>
@@ -56,16 +56,29 @@
     <div class="logo"><span>N</span></div>
     <h1>NOVE KEY SYSTEM</h1>
     <p>Step 2 of 2 — Final verification</p>
-    <button class="btn" id="startBtn">FINAL STEP →</button>
+    <button class="btn" id="startBtn">FINAL VERIFICATION →</button>
     <div class="footer">© 2024 Nove Key System</div>
 </div>
 
 <script>
-    // 2. LİNKİN - BURAYA KOY!
-    const LINKVERTISE_URL = "https://direct-link.net/5929102/FqsXJp9WaYv5";
+    const LINKVERTISE_URL = "https://direct-link.net/..."; // 2. LINKİN
     
     document.getElementById('startBtn').addEventListener('click', function() {
-        window.location.href = LINKVERTISE_URL;
+        window.open(LINKVERTISE_URL, '_blank');
+        alert("Complete the final verification in the new tab, then come back");
+        
+        const btn = document.getElementById('startBtn');
+        btn.style.display = 'none';
+        
+        const confirmBtn = document.createElement('button');
+        confirmBtn.className = 'btn';
+        confirmBtn.textContent = '✓ I COMPLETED THE VERIFICATION';
+        confirmBtn.style.marginTop = '20px';
+        confirmBtn.style.background = 'linear-gradient(135deg, #00cc66, #009944)';
+        confirmBtn.onclick = function() {
+            window.location.href = "https://adadadaqq2.github.io/novekey/step3.html";
+        };
+        document.querySelector('.container').appendChild(confirmBtn);
     });
 </script>
 </body>
