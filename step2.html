@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nove Key System | Step 1</title>
+    <title>Nove Key System | Your Key</title>
     <style>
         * {
             margin: 0;
@@ -13,160 +13,193 @@
 
         body {
             min-height: 100vh;
-            background: radial-gradient(circle at 20% 50%, #0a0a1a 0%, #000000 100%);
+            background: radial-gradient(circle at 80% 30%, #0a0a1a 0%, #000000 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Poppins', 'Segoe UI', 'Gotham', sans-serif;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
         }
 
         /* Neon ışık efektleri */
         body::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
-            left: -50%;
+            width: 100%;
+            height: 100%;
             background: repeating-linear-gradient(
-                0deg,
+                90deg,
                 transparent 0%,
                 rgba(0, 100, 255, 0.03) 50%,
                 transparent 100%
             );
-            animation: scan 8s linear infinite;
+            animation: scanHorizontal 10s linear infinite;
             pointer-events: none;
         }
 
-        @keyframes scan {
-            0% { transform: translateY(-50%); }
-            100% { transform: translateY(50%); }
+        @keyframes scanHorizontal {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
-        /* Glowing orbs */
-        .orb-1 {
+        .particles {
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0, 150, 255, 0.3), transparent);
-            border-radius: 50%;
-            top: -150px;
-            right: -150px;
-            filter: blur(60px);
-            animation: float 6s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
-        .orb-2 {
+        .particle {
             position: absolute;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, rgba(0, 200, 255, 0.2), transparent);
+            width: 3px;
+            height: 3px;
+            background: #00a3ff;
             border-radius: 50%;
-            bottom: -120px;
-            left: -120px;
-            filter: blur(50px);
-            animation: float 8s ease-in-out infinite reverse;
+            opacity: 0.5;
+            animation: particleFloat 8s linear infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(20px, -20px); }
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
         }
 
         .container {
             position: relative;
             z-index: 10;
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 48px;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(25px);
+            border-radius: 56px;
             padding: 60px 50px;
-            border: 1px solid rgba(0, 150, 255, 0.4);
-            box-shadow: 0 0 60px rgba(0, 100, 255, 0.2), inset 0 0 30px rgba(0, 100, 255, 0.05);
-            animation: fadeInUp 0.8s ease-out;
+            border: 1px solid rgba(0, 200, 255, 0.4);
+            box-shadow: 0 0 80px rgba(0, 100, 255, 0.25), inset 0 0 40px rgba(0, 100, 255, 0.05);
+            animation: scaleIn 0.6s ease-out;
+            max-width: 550px;
+            width: 90%;
         }
 
-        @keyframes fadeInUp {
+        @keyframes scaleIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
 
         .logo {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, #0064ff, #00a3ff);
-            border-radius: 30px;
+            border-radius: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 25px;
-            box-shadow: 0 0 50px rgba(0, 100, 255, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.2);
-            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 0 60px rgba(0, 100, 255, 0.5);
+            animation: neonPulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulse {
+        @keyframes neonPulse {
             0%, 100% { box-shadow: 0 0 30px rgba(0, 100, 255, 0.4); }
-            50% { box-shadow: 0 0 70px rgba(0, 150, 255, 0.8); }
+            50% { box-shadow: 0 0 80px rgba(0, 150, 255, 0.7); }
         }
 
         .logo span {
-            font-size: 56px;
+            font-size: 52px;
             font-weight: bold;
-            background: linear-gradient(135deg, #fff, #00a3ff);
+            background: linear-gradient(135deg, #fff, #00d4ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        h1 {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, #00a3ff, #0064ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .step-badge {
+        .success-badge {
             display: inline-block;
-            background: rgba(0, 100, 255, 0.15);
-            border: 1px solid rgba(0, 150, 255, 0.3);
+            background: rgba(0, 200, 100, 0.15);
+            border: 1px solid rgba(0, 200, 100, 0.4);
             border-radius: 50px;
             padding: 6px 18px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
-            color: #00a3ff;
+            color: #00ffaa;
             letter-spacing: 2px;
             margin-bottom: 20px;
         }
 
-        p {
-            color: #a0b0d0;
-            font-size: 16px;
-            margin-bottom: 40px;
-            letter-spacing: 0.5px;
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+        }
+
+        .key-box {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 24px;
+            padding: 28px 20px;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 100, 255, 0.4);
+            box-shadow: 0 0 30px rgba(0, 100, 255, 0.1), inset 0 0 20px rgba(0, 100, 255, 0.05);
+            position: relative;
+        }
+
+        .key-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #0064ff, #00a3ff, #0064ff);
+            border-radius: 26px;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .key-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #00a3ff;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .key {
+            font-family: 'Courier New', monospace;
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00a3ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            word-break: break-all;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 163, 255, 0.3);
         }
 
         .btn {
-            background: linear-gradient(135deg, #0064ff, #00a3ff);
+            background: linear-gradient(135deg, #00cc66, #009944);
             color: white;
             border: none;
-            padding: 16px 50px;
+            padding: 14px 40px;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(0, 100, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 200, 100, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -185,46 +218,64 @@
         }
 
         .btn:hover::before {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
         }
 
         .btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 150, 255, 0.6);
+            box-shadow: 0 0 35px rgba(0, 200, 100, 0.5);
         }
 
         .footer {
-            margin-top: 35px;
-            font-size: 11px;
+            margin-top: 30px;
+            font-size: 10px;
             color: #4a6080;
             letter-spacing: 1px;
         }
 
         .glow-text {
             color: #00a3ff;
-            text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
+            text-shadow: 0 0 8px rgba(0, 163, 255, 0.5);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
+    <div class="particles" id="particles"></div>
     <div class="container">
         <div class="logo"><span>N</span></div>
-        <div class="step-badge">STEP 01 / 02</div>
-        <h1>NOVE KEY SYSTEM</h1>
-        <p>Initial verification required to access your key</p>
-        <button class="btn" id="startBtn">⟡ VERIFY NOW ⟡</button>
-        <div class="footer">© 2024 NOVE • <span class="glow-text">PREMIUM SECURE SYSTEM</span></div>
+        <div class="success-badge">✓ VERIFICATION COMPLETE</div>
+        <h1>YOUR KEY IS READY</h1>
+        <div class="key-box">
+            <div class="key-label">UNIQUE LICENSE KEY</div>
+            <div class="key" id="keyValue">N7KQ-3X2M-9P4R-6V8W</div>
+        </div>
+        <button class="btn" id="copyBtn">⟡ COPY KEY ⟡</button>
+        <div class="footer">© 2024 NOVE • <span class="glow-text">VALID FOR 24 HOURS</span></div>
     </div>
 
     <script>
-        const LINKVERTISE_URL = "https://link-hub.net/5929102/qjfugotDingg";
-        
-        document.getElementById('startBtn').addEventListener('click', function() {
-            window.location.href = LINKVERTISE_URL;
-        });
+        // Partikül efekti
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = 5 + Math.random() * 5 + 's';
+            document.getElementById('particles').appendChild(particle);
+        }
+
+        document.getElementById('copyBtn').onclick = function() {
+            const key = document.getElementById('keyValue').innerText;
+            navigator.clipboard.writeText(key);
+            this.innerText = "✓ COPIED!";
+            setTimeout(() => this.innerText = "⟡ COPY KEY ⟡", 2000);
+        };
     </script>
 </body>
 </html>
