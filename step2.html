@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nove Key System | Step 2</title>
+    <title>Nove Key System | Your Key</title>
     <style>
         body {
             margin: 0;
@@ -38,21 +38,36 @@
         .logo span { font-size: 48px; font-weight: bold; color: white; }
         h1 { color: white; font-size: 28px; margin-bottom: 12px; }
         p { color: #8899bb; margin-bottom: 32px; }
+        .key-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 24px 0;
+            border: 1px solid rgba(0, 100, 255, 0.5);
+        }
+        .key {
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+            color: #00a3ff;
+            word-break: break-all;
+            letter-spacing: 1px;
+        }
         .btn {
-            background: linear-gradient(135deg, #0064ff, #00a3ff);
+            background: linear-gradient(135deg, #00cc66, #009944);
             color: white;
             border: none;
-            padding: 14px 42px;
+            padding: 12px 32px;
             border-radius: 40px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
+            margin-top: 16px;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 100, 255, 0.3);
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 100, 255, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 200, 100, 0.3);
         }
         .footer { margin-top: 32px; color: #556688; font-size: 12px; }
     </style>
@@ -60,19 +75,21 @@
 <body>
 <div class="container">
     <div class="logo"><span>N</span></div>
-    <h1>NOVE KEY SYSTEM</h1>
-    <p>Step 2 of 2 — Click below to continue</p>
-    <button class="btn" id="startBtn">GET KEY →</button>
-    <div class="footer">© 2024 Nove Key System</div>
+    <h1>YOUR KEY IS READY</h1>
+    <div class="key-box">
+        <div class="key" id="keyValue">N7KQ-3X2M-9P4R-6V8W</div>
+    </div>
+    <button class="btn" id="copyBtn">COPY KEY</button>
+    <div class="footer">© 2024 Nove Key System • Valid for 24 hours</div>
 </div>
 
 <script>
-    // 2. LİNKİN
-    const LINKVERTISE_URL = "https://link-hub.net/5929102/m6G44rGgjY88";
-    
-    document.getElementById('startBtn').addEventListener('click', function() {
-        window.location.href = LINKVERTISE_URL;
-    });
+    document.getElementById('copyBtn').onclick = function() {
+        const key = document.getElementById('keyValue').innerText;
+        navigator.clipboard.writeText(key);
+        this.innerText = "✓ COPIED!";
+        setTimeout(() => this.innerText = "COPY KEY", 2000);
+    };
 </script>
 </body>
 </html>
